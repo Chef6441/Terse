@@ -13,15 +13,20 @@ $blog_title = get_blog_title() . ' - ' . $name;
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?php echo htmlspecialchars($blog_title); ?></title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header>
 <h1><?php echo htmlspecialchars($name); ?></h1>
+<p><a href="index.php">Back to posts</a></p>
+</header>
+<main>
 <?php foreach ($posts as $post): ?>
 <article>
 <h2><a href="post.php?collection=<?php echo urlencode($name); ?>&slug=<?php echo urlencode($post['slug']); ?>"><?php echo htmlspecialchars($post['title']); ?></a></h2>
 <small><?php echo htmlspecialchars($post['created_at']); ?></small>
 </article>
 <?php endforeach; ?>
-<p><a href="index.php">Back to posts</a></p>
+</main>
 </body>
 </html>

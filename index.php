@@ -12,8 +12,10 @@ $collections = $db->query("SELECT DISTINCT collection FROM posts ORDER BY collec
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?php echo htmlspecialchars($blog_title); ?></title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header>
 <h1><?php echo htmlspecialchars($blog_title); ?></h1>
 <?php if ($collections): ?>
 <nav>
@@ -27,13 +29,15 @@ $collections = $db->query("SELECT DISTINCT collection FROM posts ORDER BY collec
 <?php else: ?>
 <p><a href="login.php">Login</a></p>
 <?php endif; ?>
+</header>
+<main>
 <?php foreach ($posts as $post): ?>
 <article>
 <h2><a href="post.php?collection=<?php echo urlencode($post['collection']); ?>&slug=<?php echo urlencode($post['slug']); ?>"><?php echo htmlspecialchars($post['title']); ?></a></h2>
 <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
 <small><?php echo htmlspecialchars($post['created_at']); ?> in <?php echo htmlspecialchars($post['collection']); ?><?php if (is_logged_in()): ?> | <a href="edit_post.php?id=<?php echo $post['id']; ?>">Edit</a><?php endif; ?></small>
 </article>
-<hr>
 <?php endforeach; ?>
+</main>
 </body>
 </html>
