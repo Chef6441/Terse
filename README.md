@@ -15,5 +15,6 @@ This repository contains a simple blogging engine written in PHP with SQLite sto
    - **Username:** `admin`
    - **Password:** `password`
 4. Create new posts from the "New Post" link.
+5. Update the username or password from the "Edit User" page after logging in.
 
 The database file `blog.db` will be created automatically in the project root.
