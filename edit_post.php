@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php if ($section): ?>
 <p><a href="view_section.php?id=<?php echo $section_id; ?>">Back to <?php echo htmlspecialchars($section['title']); ?></a></p>
 <?php else: ?>
-<p><a href="index.php">Back to index</a></p>
+<p><a href="index.php">Back to Index</a></p>
 <?php endif; ?>
 </body>
 </html>
